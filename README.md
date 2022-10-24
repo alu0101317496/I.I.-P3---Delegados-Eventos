@@ -50,5 +50,5 @@ incluso rotando el propio objeto para ponerse frente al objetivo.
 
 ![ii.ray](./Gifs/iiRay.gif)
 
-`Debug.Ray`: Se imprime un rayo desde un punto `Vector3` hasta otro punto `Vector3`.
+`Debug.Ray`: Se imprime un rayo desde un punto A(`Vector3`) hasta otro punto B(`Vector3`).
 Este rayo sólo se puede divisar en la Escena.
