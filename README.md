@@ -24,6 +24,10 @@ En esta práctica se nos pedía cumplimentar dos tareas
   - 3. Buscar información de `Debug.DrawRay` y utilízala para depuración.
 
 ## Escena con objetos básicos:
+Para realizar este apartado he creado los objetos `Capsula` y `Cubo` que se
+comunicarán mediante mensajes.
+
+El mensaje se enviará cada 1000 iteraciones.
 - Escena:
 ![Escena](./Gifs/2.png)
 - Mensajes del notificador
@@ -35,6 +39,19 @@ En esta práctica se nos pedía cumplimentar dos tareas
 - Tipo B: Cilindro
 - Tipo C: Esfera blanca
 ### 2 - i.
+Para que se detecte la colisión del jugador con el cilindro (tipoB) he hecho
+al objeto de tipo 'is-trigger', una vez colisiona con él, envía un mensaje a 
+los subscriptores de este. 
+El Cubo (tipoA) se acerca a la Esfera (tipoC) mediante la función de `Vector3`:
+`Lerp`.
+
+Esta función recibe una posición de salida, una de llegada y una velocidad de
+desplazamiento.
+
+Cuando el jugador toca el Cubo, el cilindro aumenta su tamaño. Se llevó a cabo
+utilizando el `LocalScale` de transform. Luego recupero el tamaño del cilindro
+para no tener una pantalla ocupada únicamente con el cilindro.
+
 
 ![i.](./Gifs/i.gif)
 ![i.size](./Gifs/isize.gif)
