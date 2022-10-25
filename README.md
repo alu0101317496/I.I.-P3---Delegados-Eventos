@@ -43,7 +43,7 @@ Para que se detecte la colisión del jugador con el cilindro (tipoB) he hecho
 al objeto de tipo 'is-trigger', una vez colisiona con él, envía un mensaje a 
 los subscriptores de este. 
 El Cubo (tipoA) se acerca a la Esfera (tipoC) mediante la función de `Vector3`:
-`Lerp`.
+`Lerp`; y la función de `Rigidbody`: `MovePosition`.
 
 Esta función recibe una posición de salida, una de llegada y una velocidad de
 desplazamiento.
@@ -52,15 +52,30 @@ Cuando el jugador toca el Cubo, el cilindro aumenta su tamaño. Se llevó a cabo
 utilizando el `LocalScale` de transform. Luego recupero el tamaño del cilindro
 para no tener una pantalla ocupada únicamente con el cilindro.
 
-
 ![i.](./Gifs/i.gif)
 ![i.size](./Gifs/isize.gif)
 
 ### 2 - ii.
 
+El objeto tipoC detecta que el jugador se ha acercado y hace que los objetos
+de tipoA salten y cambien de color.
+
+Para que salten he usado la función `AddForce` con el tipo de fuerza `Impulse`.
+Para que cambien de color he usado la siguiente línea de código:
+```cs
+gameObject.GetComponent<Renderer>().material.color = Random.ColorHSV();
+```
+Con esta línea obtengo un color aleatorio y se lo aplico a los objetos de tipoA.
+
+Si nos fijamos en el gif, también veremos como el cilindro se orienta hacia
+el objeto de tipoA (el que acaba de saltar).
+
+Para esta función he utilizado `LookAt` de transform. Esta función recibe como
+argumento un punto al que orientarse de tipo `Vector3`.
+
 ![ii](./Gifs/ii.gif)
 
-`LookAt`: Es una función que recibe un `Transform` al que se orientará,
+`LookAt`: Es una función que recibe un `Vector3` al que se orientará,
 incluso rotando el propio objeto para ponerse frente al objetivo.
 
 ### 2 - iii.
